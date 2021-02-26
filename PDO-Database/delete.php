@@ -1,8 +1,9 @@
 <?php
 
 if (!isset($_GET["id"]) || empty($_GET["id"])) {
-    echo "elem dont exist";
+    echo "ID value not found";
     header("Refresh:3; url=index.php");
+    exit;
 }
 
 $query = $db->prepare("DELETE FROM `example_table` WHERE ID = ?");
