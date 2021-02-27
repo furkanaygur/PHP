@@ -47,7 +47,7 @@ if (isset($_POST["submit"])) {
         ]);
         $lastID = $db->lastInsertId();
         if ($add) {
-            echo "Successfuly added ";
+            echo "Successfuly added";
             $situation == 1 ? header("Location:index.php?page=read&id=" . $lastID) : header("Location:index.php");
             print_r($query->errorInfo());
         }
