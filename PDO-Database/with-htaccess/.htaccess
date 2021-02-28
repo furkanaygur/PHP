@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteRule ^read([0-9]+)$ index.php?page=read&id=$1 [QSA]
+RewriteRule ^pagecount([0-9]+)$ index.php?pagecount=$1 [QSA]
+RewriteRule ^for_join_elem([0-9]+)$ index.php?page=for_join_elem&id=$1 [QSA]
+RewriteRule ^update([0-9]+)$ index.php?page=update&id=$1 [QSA]
+RewriteRule ^delete([0-9]+)$ index.php?page=delete&id=$1 [QSA]
+
+RewriteRule ^([0-9a-zA-Z-_/]+)$ index.php?page=$1 [QSA]
