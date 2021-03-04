@@ -1,2 +1,3 @@
 <?php
+
 require adminView('index');

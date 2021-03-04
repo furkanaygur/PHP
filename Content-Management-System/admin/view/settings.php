@@ -40,6 +40,104 @@
                 </div>
             </li>
         </ul>
+        <h1>Search Settings</h1> <br>
+        <ul>
+            <li>
+                <label>Search ınput placeholder:</label>
+                <div class="form-content">
+                    <input type="text" name="settings[search_placeholder]" value="<?= setting('search_placeholder') ?>" placeholder="Search ınput placeholder">
+                </div>
+            </li>
+        </ul>
+        <h1>Home Page Settings</h1> <br>
+        <ul>
+            <li>
+                <label>Welcome Title:</label>
+                <div class="form-content">
+                    <input type="text" name="settings[welcome_title]" value="<?= setting('welcome_title') ?>" placeholder="Welcome Title">
+                </div>
+            </li>
+            <li>
+                <label>Welcome Text:</label>
+                <div class="form-content">
+                    <input type="text" name="settings[welcome_text]" value="<?= setting('welcome_text') ?>" placeholder="Welcome text">
+                </div>
+            </li>
+        </ul>
+
+        <h1>Footer Settings</h1> <br>
+        <ul>
+            <li>
+                <label>Search Input Placeholder:</label>
+                <div class="form-content">
+                    <input type="text" name="settings[footer_about]" value="<?= setting('footer_about') ?>" placeholder="Footer Input">
+                </div>
+            </li>
+        </ul>
+        <h1>Soical Media Settings</h1> <br>
+        <ul>
+            <li>
+                <label>Facebook URL:</label>
+                <div class="form-content">
+                    <input type="text" name="settings[soical_facebook]" value="<?= setting('soical_facebook') ?>" placeholder="Facebook URl:">
+                </div>
+                <label>Facebook Name:</label>
+                <div class="form-content">
+                    <input type="text" name="settings[soical_facebook_name]" value="<?= setting('soical_facebook_name') ?>" placeholder="Facebook Name">
+                </div>
+            </li>
+            <li>
+                <label>Twitter URL:</label>
+                <div class="form-content">
+                    <input type="text" name="settings[soical_twitter]" value="<?= setting('soical_twitter') ?>" placeholder="Twitter URL">
+                </div>
+                <label>Twitter Name:</label>
+                <div class="form-content">
+                    <input type="text" name="settings[soical_twitter_name]" value="<?= setting('soical_twitter_name') ?>" placeholder="Twitter Name">
+                </div>
+            </li>
+            <li>
+                <label>Instagram URL:</label>
+                <div class="form-content">
+                    <input type="text" name="settings[soical_instagram]" value="<?= setting('soical_instagram') ?>" placeholder="Instagram URL">
+                </div>
+                <label>Instagram Name:</label>
+                <div class="form-content">
+                    <input type="text" name="settings[soical_instagram_name]" value="<?= setting('soical_instagram_name') ?>" placeholder="Instagram Name">
+                </div>
+            </li>
+            <li>
+                <label>Github URL:</label>
+                <div class="form-content">
+                    <input type="text" name="settings[soical_github]" value="<?= setting('soical_github') ?>" placeholder="Github URL">
+                </div>
+                <label>Gıthub Name:</label>
+                <div class="form-content">
+                    <input type="text" name="settings[soical_github_name]" value="<?= setting('soical_github_name') ?>" placeholder="Github Name">
+                </div>
+            </li>
+            <li>
+                <label>Linkedin URL:</label>
+                <div class="form-content">
+                    <input type="text" name="settings[soical_linkedin]" value="<?= setting('soical_linkedin') ?>" placeholder="Linkedin URL">
+                </div>
+                <label>Linkedin Name:</label>
+                <div class="form-content">
+                    <input type="text" name="settings[soical_linkedin_name]" value="<?= setting('soical_linkedin_name') ?>" placeholder="Linkedin Name">
+                </div>
+            </li>
+
+        </ul>
+
+        <h1>Footer Settings</h1> <br>
+        <ul>
+            <li>
+                <label>Search Input Placeholder:</label>
+                <div class="form-content">
+                    <input type="text" name="settings[footer_about]" value="<?= setting('footer_about') ?>" placeholder="Footer Input Placeholder">
+                </div>
+            </li>
+        </ul>
         <h1>Maintenance Mode</h1> <br>
         <ul>
             <li>
@@ -54,7 +152,7 @@
             <li>
                 <label>Mainteance Mode Title</label>
                 <div class="form-content">
-                    <input type="text" name="settings[mainteance_title]" placeholder=" Mainteance Mode Title">
+                    <input type="text" name="settings[mainteance_title]" placeholder="Mainteance Mode Title">
                 </div>
             </li>
             <li>

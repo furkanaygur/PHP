@@ -44,7 +44,7 @@
                     <h1>
                         Oops!</h1>
                     <h2>
-                        Temporarily down for maintenance</h2>
+                        <?= setting('mainteance_description') ?></h2>
                     <h1>
                         <?= setting('mainteance_description') ?></h1>
                 </div>
