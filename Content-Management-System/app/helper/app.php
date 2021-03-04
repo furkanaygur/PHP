@@ -8,11 +8,17 @@ function controller($controllerName)
 
 function view($viewName)
 {
-    return PATH . '/app/view/' . $viewName . '.php';
+    return PATH . '/app/view/' . setting('theme') . '/' . $viewName . '.php';
 }
 
 function route($index)
 {
     global $route;
     return isset($route[$index]) ? $route[$index] : false;
+}
+
+function setting($name)
+{
+    global $settings;
+    return isset($settings[$name]) ? $settings[$name] : false;
 }

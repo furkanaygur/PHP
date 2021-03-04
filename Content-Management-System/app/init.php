@@ -17,6 +17,8 @@ try {
     die($err->getMessage());
 }
 
+require __DIR__ . '/settings.php';
+
 foreach (glob(__DIR__ . '/helper/*.php') as $helperFile) {
     require $helperFile;
 }

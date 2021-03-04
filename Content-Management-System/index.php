@@ -12,4 +12,8 @@ if (!file_exists(controller(route(0)))) {
     $route[0] = '404';
 }
 
+if (setting('mainteance') == 2) {
+    $route[0] = 'mainteanceMode';
+}
+
 require controller($route[0]);
