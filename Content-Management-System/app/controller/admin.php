@@ -20,7 +20,10 @@ $menus = [
             'list-users' => 'List Users'
         ]
     ],
-
+    'menu-settings' => [
+        'title' => 'Menu Settings',
+        'icon' => 'bars'
+    ],
     'settings' => [
         'title' => 'Settings',
         'icon' => 'cog'

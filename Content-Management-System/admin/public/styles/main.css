@@ -827,6 +827,55 @@ body {
   background-color: #32373c;
   color: #fff;
 }
+.menu-container {
+  background: #fff;
+  padding: 20px;
+}
+.menu-container h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.menu-container form > ul {
+  background: #f5f5f5;
+  max-width: 400px;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  border-left: none;
+}
+.menu-container form > ul li {
+  position: relative;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+  padding: 10px 30px 10px 10px;
+  border-left: 3px solid #3b5998;
+}
+.menu-container form > ul li .delete-menu {
+  position: absolute;
+  top: 12px;
+  right: 4px;
+  font-size: 10px !important;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  background: darkred;
+  border-radius: 50%;
+  color: #fff;
+}
+.menu-container form > ul li input {
+  margin-bottom: 5px;
+  font-size: 14px !important;
+}
+.menu-container form > ul li .sub-menu {
+  margin-left: 30px;
+  margin-bottom: 10px;
+  border-top: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  background: #fff;
+}
+.menu-container form .menu-btn {
+  margin-top: 10px;
+}
 @media all and (max-width: 1300px) {
   .content .box-container.container-25 {
     width: 50%;

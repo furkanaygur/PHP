@@ -9,12 +9,12 @@
     <title><?= setting('title') ?> | ADMIN</title>
 
     <!--styles-->
-    <link rel="stylesheet" href="<?= adminPublicURl('styles/main.css') ?>">
+    <link rel="stylesheet" href="<?= adminPublicURL('styles/main.css?v') . time() ?>">
 
     <!--scripts-->
-    <script src="<?= adminPublicURl('scripts/jquery-1.12.2.min.js') ?>"></script>
+    <script src="<?= adminPublicURL('scripts/jquery-1.12.2.min.js') ?>"></script>
     <!--    <script src="https://cdn.ckeditor.com/4.5.7/basic/ckeditor.js"></script>-->
-    <script src="<?= adminPublicURl('scripts/admin.js') ?>"></script>
+    <script src="<?= adminPublicURL('scripts/admin.js') ?>"></script>
 
 </head>
 

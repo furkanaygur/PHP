@@ -32,10 +32,21 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
+                    <?php foreach (menu(9) as $key => $menu) : ?>
+                        <li class="nav-item active <?= isset($menu['submenu']) ? 'dropdown' : '' ?>">
+                            <a class="nav-link <?= isset($menu['submenu']) ? 'dropdown-toggle' : '' ?> " href="#" <?= isset($menu['submenu']) ? 'id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : '' ?>>
+                                <?= $menu['title'] ?>
+                            </a>
+                            <?php if (isset($menu['submenu'])) : ?>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <?php foreach ($menu['submenu'] as $k => $submenu) : ?>
+                                        <a class="dropdown-item" href="#"><?= $submenu['title'] ?></a>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+                        </li>
+                    <?php endforeach; ?>
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#">Blog</a>
                     </li>
                     <li class="nav-item dropdown">
@@ -53,7 +64,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
-                    </li>
+                    </li> -->
                 </ul>
                 <form class="form-inline my-2 my-lg-0 mr-1">
                     <input class="form-control mr-sm-2" type="search" placeholder="<?= setting('search_placeholder') ?>" aria-label="Search">
