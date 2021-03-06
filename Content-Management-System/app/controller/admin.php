@@ -14,11 +14,11 @@ $menus = [
     ],
     'users' => [
         'title' => 'Users',
-        'icon' => 'user',
-        'submenu' => [
-            'add-user' => 'Add User',
-            'list-users' => 'List Users'
-        ]
+        'icon' => 'user'
+        // 'submenu' => [
+        //     'add-user' => 'Add User',
+        //     'list-users' => 'List Users'
+        // ]
     ],
     'menu-settings' => [
         'title' => 'Menu Settings',

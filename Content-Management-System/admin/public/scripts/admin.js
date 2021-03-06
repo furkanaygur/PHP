@@ -23,6 +23,7 @@ $(function () {
         }
         e.preventDefault();
     });
+
     function checkToggle() {
         $.each(localStorage, function (key, val) {
             if (!key.indexOf('box_')) {
@@ -82,5 +83,25 @@ $(function () {
     if ($('#editor').length) {
         CKEDITOR.replace('editor');
     }
+    
+    $('.menu').sortable({
+        handle:function(){},
+        start: function(e, ui){
+            ui.placeholder.height(ui.item.height());
+        },
+        update: function(){
+            $('#menu >li ').each(function () {
+                var subMenu = $('li', this);
+                if(subMenu.length){
+                    var index = $(this).index();
+                    subMenu.each(function(){
+                        $('input:eq(0)', this).attr('name','sub_title_'+index+'[]');
+                        $('input:eq(1)', this).attr('name','sub_url_'+index+'[]');
+                    })
+                }
+            })
+
+        }
+    });
 
 });

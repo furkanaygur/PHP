@@ -13,8 +13,62 @@
 
     <!--scripts-->
     <script src="<?= adminPublicURL('scripts/jquery-1.12.2.min.js') ?>"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <!--    <script src="https://cdn.ckeditor.com/4.5.7/basic/ckeditor.js"></script>-->
     <script src="<?= adminPublicURL('scripts/admin.js') ?>"></script>
+
+    <style>
+        .handle {
+            width: 25px;
+            height: 20px;
+            background: #ccc;
+            position: absolute;
+            top: 0;
+            right: -25px;
+            display: flex;
+            align-items: center;
+            cursor: move;
+        }
+
+        .handle span {
+            position: absolute;
+            height: 3px;
+            width: 25px;
+            background: black;
+            cursor: move;
+        }
+
+        .handle span:before,
+        .handle span:after {
+            content: '';
+            position: absolute;
+            height: 3px;
+            width: 25px;
+            background: black;
+        }
+
+        .handle span:before {
+            top: -10px;
+        }
+
+        .handle span:after {
+            bottom: -10px;
+        }
+
+        .menu-container form>ul li {
+            background-color: #f5f5f5;
+            overflow: inherit;
+        }
+
+        .menu-container form>ul li.ui-sortable-helper {
+            box-shadow: 0 0 25px 0 rgba(0, 0, 0, .5);
+        }
+
+        .ui-sortable-placeholder {
+            background-color: #f7faa0 !important;
+            visibility: visible !important;
+        }
+    </style>
 
 </head>
 
@@ -112,3 +166,8 @@
 
     <!--content-->
     <div class="content">
+        <?php if ($err = error()) : ?>
+            <div class="message error box-">
+                <?= $err ?>
+            </div>
+        <?php endif; ?>

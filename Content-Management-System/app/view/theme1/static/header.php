@@ -34,13 +34,13 @@
                 <ul class="navbar-nav mr-auto">
                     <?php foreach (menu(9) as $key => $menu) : ?>
                         <li class="nav-item active <?= isset($menu['submenu']) ? 'dropdown' : '' ?>">
-                            <a class="nav-link <?= isset($menu['submenu']) ? 'dropdown-toggle' : '' ?> " href="#" <?= isset($menu['submenu']) ? 'id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : '' ?>>
+                            <a class="nav-link <?= isset($menu['submenu']) ? 'dropdown-toggle' : '' ?> " href="<?= $menu['url'] ?>" <?= isset($menu['submenu']) ? 'id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : '' ?>>
                                 <?= $menu['title'] ?>
                             </a>
                             <?php if (isset($menu['submenu'])) : ?>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <?php foreach ($menu['submenu'] as $k => $submenu) : ?>
-                                        <a class="dropdown-item" href="#"><?= $submenu['title'] ?></a>
+                                        <a class="dropdown-item" href="<?= $submenu['url'] ?>"><?= $submenu['title'] ?></a>
                                     <?php endforeach; ?>
                                 </div>
                             <?php endif; ?>

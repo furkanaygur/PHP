@@ -17,7 +17,7 @@
             <?php foreach ($rows as $row) : ?>
                 <tr>
                     <td>
-                        <a href="#" class="title">
+                        <a href="<?= adminURL('edit-menu?id=') . $row['menu_ID'] ?>" class="title">
                             <?= $row['menu_title'] ?>
                         </a>
                     </td>
@@ -27,7 +27,7 @@
                     </td>
                     <td class="hide">
                         <a href="<?= adminURL('edit-menu?id=') . $row['menu_ID'] ?>" class="btn" id="updatebtn">Update</a>
-                        <a href="<?= adminURL('delete?table=menu&column=menu_id&id=') . $row['menu_ID'] ?>" style="background-color: #ff3333;" class="btn" id="deletebtn">Delete</a>
+                        <a onclick="return confirm('Are you sure?')" href="<?= adminURL('delete?table=menu&column=menu_id&id=') . $row['menu_ID'] ?>" style="background-color: #ff3333;" class="btn" id="deletebtn">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
