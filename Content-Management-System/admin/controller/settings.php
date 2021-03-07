@@ -1,12 +1,18 @@
 <?php
-
+if (permission('settings', 'view')) {
+    permissionPage();
+}
 $themes = [];
 foreach (glob(PATH . '/app/view/*/') as $folder) {
     $folder = explode('/', rtrim($folder, '/'));
     $themes[] = end($folder);
 }
 
-if (isset($_POST['submit'])) {
+if (post('submit')) {
+    if (permission('settings', 'edit')) {
+        permissionPage();
+        exit;
+    }
     $html = '<?php' . PHP_EOL . PHP_EOL;
     foreach (post('settings') as $key => $value) {
         $html .= '$settings["' . $key . '"] = "' . $value . '";' . PHP_EOL;

@@ -1,5 +1,7 @@
 <?php
-
+if (permission('menu-settings', 'add')) {
+    permissionPage();
+}
 if (post('submit')) {
     $menu = [];
     $menu_title = post('menu_title');

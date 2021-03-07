@@ -128,28 +128,30 @@
         <!--sidebar-->
         <div class="sidebar">
             <ul>
-                <?php foreach ($menus as $mainUrl => $menu) : ?>
-                    <li class="<?= (route(1) == $mainUrl) || isset($menu['submenu'][route(1)]) ? 'active' : null ?>">
-                        <a href="<?= adminURL($mainUrl) ?>">
-                            <span class="fa fa-<?= $menu['icon'] ?>"></span>
-                            <span class="title">
-                                <?= $menu['title'] ?>
-                            </span>
-                        </a>
-                        <?php if (isset($menu['submenu'])) : ?>
-                            <ul class="sub-menu ">
-                                <?php foreach ($menu['submenu'] as $url => $title) : ?>
-                                    <li class="<?= (route(1) == $url ? 'active' : null) ?>">
-                                        <a href="<?= adminURL($url) ?>">
-                                            <?= $title ?>
+                <?php if (isset($menus)) : ?>
+                    <?php foreach ($menus as $mainUrl => $menu) : ?>
+                        <li class="<?= (route(1) == $mainUrl) || isset($menu['submenu'][route(1)]) ? 'active' : null ?>">
+                            <a href="<?= adminURL($mainUrl) ?>">
+                                <span class="fa fa-<?= $menu['icon'] ?>"></span>
+                                <span class="title">
+                                    <?= $menu['title'] ?>
+                                </span>
+                            </a>
+                            <?php if (isset($menu['submenu'])) : ?>
+                                <ul class="sub-menu ">
+                                    <?php foreach ($menu['submenu'] as $url => $title) : ?>
+                                        <li class="<?= (route(1) == $url ? 'active' : null) ?>">
+                                            <a href="<?= adminURL($url) ?>">
+                                                <?= $title ?>
 
-                                        </a>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        <?php endif; ?>
-                    </li>
-                <?php endforeach; ?>
+                                            </a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </li>
+                    <?php endforeach; ?>
+                <?php endif; ?>
                 <li>
                     <a href="../index">
                         <span class="fa fa-times-circle"></span>

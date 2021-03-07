@@ -1,2 +1,2 @@
 <?php
-echo 'page dont exist';
+require PATH . '/app/view/404.php';

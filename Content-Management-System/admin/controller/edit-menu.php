@@ -1,4 +1,9 @@
 <?php
+
+if (permission('menu-settings', 'edit')) {
+    permissionPage();
+}
+
 $id = get('id');
 if (!$id) {
     header('Location:' . adminURL('menu'));

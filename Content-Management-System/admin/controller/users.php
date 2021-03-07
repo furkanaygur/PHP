@@ -1,5 +1,8 @@
 <?php
 
+if (permission('users', 'view')) {
+    permissionPage();
+}
 $totalRecord = $db->from('users')
     ->select('count(user_ID) as total')
     ->total();

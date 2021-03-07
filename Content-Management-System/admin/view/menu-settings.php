@@ -1,4 +1,6 @@
 <?php require adminView('static/header') ?>
+
+
 <div class="box-">
     <h1>Menu Settings
         <a href="<?= adminURL('add-menu') ?>">Add New</a>

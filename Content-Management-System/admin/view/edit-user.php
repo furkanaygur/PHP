@@ -1,4 +1,34 @@
 <?php require adminView('static/header'); ?>
+
+<style>
+    .permissions {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        max-width: 400px;
+        padding: 15px;
+    }
+
+    .permissions h3 {
+        font-weight: bold;
+    }
+
+    .permissions .list:not(:last-child) {
+        margin-bottom: 1.5rem;
+    }
+
+    .permissions .list label {
+        float: none !important;
+        display: inline-block;
+        width: auto !important;
+        font-weight: normal !important;
+        margin-right: 10px;
+    }
+
+    .permissions .list label input {
+        cursor: pointer;
+    }
+</style>
+
 <div class="content">
 
     <div class="box-">
@@ -33,6 +63,27 @@
                                 <option <?= (post('user_rank') ? post('user_rank') : $row['user_rank']) == $id ? 'selected' : null ?> value="<?= $id ?>"><?= $rank ?></option>
                             <?php endforeach; ?>
                         </select>
+                    </div>
+                </li>
+                <li>
+                    <label for="select">Permissions</label>
+                    <div class="form-content">
+                        <div class="permissions">
+                            <?php foreach ($menus as $url => $menu) : ?>
+                                <div>
+                                    <h3><?= $menu['title'] ?></h3>
+                                </div>
+                                <div class="list">
+                                    <?php foreach ($menu['permissions'] as $key => $permission) : ?>
+                                        <label for="<?= $permission . $url ?>">
+                                            <input type="checkbox" value="1" <?= (isset($permissions[$url][$key]) && $permissions[$url][$key] == 1) ? 'checked' : null ?> name="user_permissions[<?= $url ?>][<?= $key ?>]" id="<?= $permission . $url ?>">
+
+                                            <?= $permission ?>
+                                        </label>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 </li>
                 <!-- <li>

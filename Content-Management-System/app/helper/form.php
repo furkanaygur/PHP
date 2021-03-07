@@ -3,9 +3,15 @@ function post($name)
 {
     if (isset($_POST[$name])) {
         if (is_array($_POST[$name])) {
-            return array_map(function ($item) {
-                return htmlspecialchars(trim($item));
-            }, $_POST[$name]);
+            if (count($_POST[$name]) > 1) {
+                return array_walk_recursive($_POST[$name], function ($item) {
+                    return htmlspecialchars(trim($item));
+                });
+            } else {
+                return array_map(function ($item) {
+                    return htmlspecialchars(trim($item));
+                }, $_POST[$name]);
+            }
         }
         return htmlspecialchars(trim($_POST[$name]));
     }

@@ -13,11 +13,19 @@ if (!session('user_rank') || session('user_rank') == 3) {
 $menus = [
     'index' => [
         'title' => 'Home',
-        'icon' => 'home'
+        'icon' => 'home',
+        'permissions' => [
+            'view' => 'View'
+        ]
     ],
     'users' => [
         'title' => 'Users',
-        'icon' => 'user'
+        'icon' => 'user',
+        'permissions' => [
+            'view' => 'View',
+            'edit' => 'Edit',
+            'delete' => 'Delete'
+        ]
         // 'submenu' => [
         //     'add-user' => 'Add User',
         //     'list-users' => 'List Users'
@@ -25,11 +33,21 @@ $menus = [
     ],
     'menu-settings' => [
         'title' => 'Menu Settings',
-        'icon' => 'bars'
+        'icon' => 'bars',
+        'permissions' => [
+            'add' => 'Add',
+            'view' => 'View',
+            'edit' => 'Edit',
+            'delete' => 'Delete'
+        ]
     ],
     'settings' => [
         'title' => 'Settings',
-        'icon' => 'cog'
+        'icon' => 'cog',
+        'permissions' => [
+            'view' => 'View',
+            'edit' => 'Edit'
+        ]
     ],
 
 
