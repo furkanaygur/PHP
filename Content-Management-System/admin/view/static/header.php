@@ -10,7 +10,7 @@
 
     <!--styles-->
     <link rel="stylesheet" href="<?= adminPublicURL('styles/main.css?v') . time() ?>">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <!--scripts-->
     <script src="<?= adminPublicURL('scripts/jquery-1.12.2.min.js') ?>"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
@@ -73,101 +73,110 @@
 </head>
 
 <body>
-
-    <!--navbar-->
-    <div class="navbar">
-        <ul dropdown>
-            <li>
-                <a href="#">
-                    <span class="fa fa-home"></span>
-                    <span class="title">
-                        Furkan Aygur | CSM
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="fa fa-comment"></span>
-                    1
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="fa fa-plus"></span>
-                    <span class="title">New</span>
-                </a>
-                <ul>
-                    <li>
-                        <a href="#">
-                            New Post
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            New Page
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            New Category
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
-    <!--sidebar-->
-    <div class="sidebar">
-        <ul>
-            <?php foreach ($menus as $mainUrl => $menu) : ?>
-                <li class="<?= (route(1) == $mainUrl) || isset($menu['submenu'][route(1)]) ? 'active' : null ?>">
-                    <a href="<?= adminURL($mainUrl) ?>">
-                        <span class="fa fa-<?= $menu['icon'] ?>"></span>
+    <?php if (session('user_rank') && session('user_rank') != 3) : ?>
+        <!--navbar-->
+        <div class="navbar">
+            <ul dropdown>
+                <li>
+                    <a href="#">
+                        <span class="fa fa-home"></span>
                         <span class="title">
-                            <?= $menu['title'] ?>
+                            <?= setting('title') ?>
                         </span>
                     </a>
-                    <?php if (isset($menu['submenu'])) : ?>
-                        <ul class="sub-menu ">
-                            <?php foreach ($menu['submenu'] as $url => $title) : ?>
-                                <li class="<?= (route(1) == $url ? 'active' : null) ?>">
-                                    <a href="<?= adminURL($url) ?>">
-                                        <?= $title ?>
-
-                                    </a>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    <?php endif; ?>
                 </li>
-            <?php endforeach; ?>
-            <li>
-                <a href="../index">
-                    <span class="fa fa-times-circle"></span>
-                    <span class="title">
-                        Go Back Site
-                    </span>
-                </a>
-            </li>
-            <li class="line">
-                <span></span>
-            </li>
-        </ul>
-        <a href="#" class="collapse-menu">
-            <span class="fa fa-arrow-circle-left"></span>
-            <span class="title">
-                Collapse menu
-            </span>
-        </a>
+                <li>
+                    <a href="<?= adminURL('logout') ?>">
+                        <span class="fas fa-sign-out-alt"></span>
+                        <span class="title">
+                            Logout
+                        </span>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a href="#">
+                        <span class="fa fa-comment"></span>
+                        1
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="fa fa-plus"></span>
+                        <span class="title">New</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                New Post
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                New Page
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                New Category
+                            </a>
+                        </li>
+                    </ul>
+                </li> -->
+            </ul>
+        </div>
+
+        <!--sidebar-->
+        <div class="sidebar">
+            <ul>
+                <?php foreach ($menus as $mainUrl => $menu) : ?>
+                    <li class="<?= (route(1) == $mainUrl) || isset($menu['submenu'][route(1)]) ? 'active' : null ?>">
+                        <a href="<?= adminURL($mainUrl) ?>">
+                            <span class="fa fa-<?= $menu['icon'] ?>"></span>
+                            <span class="title">
+                                <?= $menu['title'] ?>
+                            </span>
+                        </a>
+                        <?php if (isset($menu['submenu'])) : ?>
+                            <ul class="sub-menu ">
+                                <?php foreach ($menu['submenu'] as $url => $title) : ?>
+                                    <li class="<?= (route(1) == $url ? 'active' : null) ?>">
+                                        <a href="<?= adminURL($url) ?>">
+                                            <?= $title ?>
+
+                                        </a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                    </li>
+                <?php endforeach; ?>
+                <li>
+                    <a href="../index">
+                        <span class="fa fa-times-circle"></span>
+                        <span class="title">
+                            Go Back Site
+                        </span>
+                    </a>
+                </li>
+                <li class="line">
+                    <span></span>
+                </li>
+            </ul>
+            <a href="#" class="collapse-menu">
+                <span class="fa fa-arrow-circle-left"></span>
+                <span class="title">
+                    Collapse menu
+                </span>
+            </a>
 
 
-    </div>
+        </div>
 
-    <!--content-->
-    <div class="content">
-        <?php if ($err = error()) : ?>
-            <div class="message error box-">
-                <?= $err ?>
-            </div>
+        <div class="content">
+
+            <?php if ($err = error()) : ?>
+                <div class="message error box-">
+                    <?= $err ?>
+                </div>
+            <?php endif; ?>
         <?php endif; ?>

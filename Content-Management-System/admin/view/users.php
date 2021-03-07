@@ -16,6 +16,7 @@
                 <tr>
                     <th>User Name</th>
                     <th class="hide">User Email</th>
+                    <th>Role</th>
                     <th>Added Date</th>
                     <th>Opperations</th>
                 </tr>
@@ -31,6 +32,9 @@
                         </td>
                         <td class="hide">
                             <?= $row['user_email'] ?>
+                        </td>
+                        <td>
+                            <?= user_ranks($row['user_rank']) ?>
                         </td>
                         <td>
                             <span class="date"><?= $row['user_date'] ?></span>

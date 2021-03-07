@@ -1,6 +1,6 @@
 <?php
 
-$settings["title"] = "Furkan AYGUR";
+$settings["title"] = "Furkan AYGUR | CSM";
 $settings["description"] = "furkanaygur";
 $settings["keywords"] = "furkan, aygur";
 $settings["theme"] = "theme1";

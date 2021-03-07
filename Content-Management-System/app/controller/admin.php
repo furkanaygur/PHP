@@ -7,10 +7,13 @@ if (!file_exists(adminController(route(1)))) {
     $route[1] = 'index';
 }
 
+if (!session('user_rank') || session('user_rank') == 3) {
+    $route[1] = 'login';
+}
 $menus = [
     'index' => [
         'title' => 'Home',
-        'icon' => 'tachometer'
+        'icon' => 'home'
     ],
     'users' => [
         'title' => 'Users',

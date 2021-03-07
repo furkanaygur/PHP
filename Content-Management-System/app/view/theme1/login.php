@@ -27,6 +27,5 @@
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
         </div>
-
     </div>
     <?php require view('static/footer'); ?>

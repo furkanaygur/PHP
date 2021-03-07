@@ -436,7 +436,10 @@ button:not(.toggle):focus {
   float: right;
 }
 .login-screen .login-links {
-  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .login-screen .login-links a {
   display: block;

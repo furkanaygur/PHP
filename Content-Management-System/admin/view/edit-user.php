@@ -24,7 +24,17 @@
                         <input type="text" value="<?= post('user_email') ? post('user_email') : $row['user_email'] ?>" id="user_email" name="user_email" placeholder="User Email">
                     </div>
                 </li>
-
+                <li>
+                    <label for="select">User Role</label>
+                    <div class="form-content">
+                        <select name="user_rank" id="user_rank">
+                            <option value=""> -Choose Role- </option>
+                            <?php foreach (user_ranks() as $id => $rank) : ?>
+                                <option <?= (post('user_rank') ? post('user_rank') : $row['user_rank']) == $id ? 'selected' : null ?> value="<?= $id ?>"><?= $rank ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </li>
                 <!-- <li>
                     <label for="description">Description</label>
                     <div class="form-content">
