@@ -31,6 +31,16 @@ $menus = [
         //     'list-users' => 'List Users'
         // ]
     ],
+    'contact' => [
+        'title' => 'Contacts',
+        'icon' => 'envelope',
+        'permissions' => [
+            'send' => 'Send',
+            'view' => 'View',
+            'edit' => 'Edit',
+            'delete' => 'Delete'
+        ]
+    ],
     'menu-settings' => [
         'title' => 'Menu Settings',
         'icon' => 'bars',
