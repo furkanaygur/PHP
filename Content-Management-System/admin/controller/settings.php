@@ -17,6 +17,7 @@ if (post('submit')) {
     foreach (post('settings') as $key => $value) {
         $html .= '$settings["' . $key . '"] = "' . $value . '";' . PHP_EOL;
     }
+
     file_put_contents(PATH . '/app/settings.php', $html);
     header('Location:' . adminURL('settings'));
 }

@@ -6,8 +6,10 @@ class User
     {
         $_SESSION['user_ID'] = $data['user_ID'];
         $_SESSION['user_name'] = $data['user_name'];
-        $_SESSION['user_rank'] = $data['user_rank'];
-        $_SESSION['user_permissions'] = $data['user_permissions'];
+        if (isset($data['user_rank']) || isset($data['user_permissions'])) {
+            $_SESSION['user_rank'] = $data['user_rank'];
+            $_SESSION['user_permissions'] = $data['user_permissions'];
+        }
     }
 
     public static function usersExist($username, $email = '@@')
@@ -24,7 +26,7 @@ class User
     public static function register($data)
     {
         global $db;
-        $query = $db->prepare('INSERT INTO users SET user_name = :username, user_email= :useremail, user_password = :userpassword ');
+        $query = $db->prepare('INSERT INTO users SET user_name = :username, user_email= :useremail, user_password = :userpassword');
         return $query->execute($data);
     }
 

@@ -25,7 +25,7 @@ if (post('submit')) {
             $result = User::register([
                 'username' => $username,
                 'useremail' => $email,
-                'userpassword' => password_hash($password, PASSWORD_DEFAULT)
+                'userpassword' => password_hash($password, PASSWORD_DEFAULT),
             ]);
 
             if ($result) {
@@ -33,7 +33,6 @@ if (post('submit')) {
                     'user_ID' => $db->lastInsertId(),
                     'user_name' => $username
                 ]);
-
                 $success = 'Saved Successfully';
                 header('Refresh:2;url=' . siteURL());
             } else {
