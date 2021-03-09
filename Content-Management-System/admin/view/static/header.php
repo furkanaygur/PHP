@@ -12,10 +12,14 @@
     <link rel="stylesheet" href="<?= adminPublicURL('styles/main.css?v') . time() ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <!--scripts-->
-    <script src="<?= adminPublicURL('scripts/jquery-1.12.2.min.js') ?>"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <!--    <script src="https://cdn.ckeditor.com/4.5.7/basic/ckeditor.js"></script>-->
+    <script>
+        var api_url = '<?= adminURL('api') ?>'
+    </script>
     <script src="<?= adminPublicURL('scripts/admin.js') ?>"></script>
+    <script src="<?= adminPublicURL('scripts/api.js') ?>"></script>
 
     <style>
         .handle {

@@ -7,6 +7,13 @@
 
 <div class="clear" style="height: 10px;"></div>
 
+
+<style>
+    form ul:not(:last-child) {
+        margin-bottom: 4rem;
+    }
+</style>
+
 <div class="box-">
     <form action="" method="post" class="form label">
         <ul>
@@ -138,6 +145,7 @@
                 </div>
             </li>
         </ul>
+
         <h1>Maintenance Mode</h1> <br>
         <ul>
             <li>
@@ -162,6 +170,50 @@
                 </div>
             </li>
         </ul>
+
+        <h1>SMTP Mail Settings</h1> <br>
+        <ul>
+            <li>
+                <label>SMTP Host</label>
+                <div class="form-content">
+                    <input type="text" name="settings[smtp_host]" value="<?= setting('smtp_host') ?>" placeholder="SMTP Host">
+                </div>
+            </li>
+            <li>
+                <label>SMTP E-Mail</label>
+                <div class="form-content">
+                    <input type="text" name="settings[smtp_email]" value="<?= setting('smtp_email') ?>" placeholder="SMTP E-Mail">
+                </div>
+            </li>
+            <li>
+                <label>SMTP E-Mail Password</label>
+                <div class="form-content">
+                    <input type="password" id="password" name="settings[smtp_password]" value="<?= setting('smtp_password') ?>" placeholder="SMTP E-Mail Password">
+                    <input style="margin-left: 1rem;" type="checkbox" onclick="hidePassword()"> Show Password
+                </div>
+            </li>
+            <li>
+                <label>Sender Name</label>
+                <div class="form-content">
+                    <input type="text" name="settings[smtp_sender_name]" value="<?= setting('smtp_sender_name') ?>" placeholder="Sender Name">
+                </div>
+            </li>
+            <li>
+                <label>SMTP Secure</label>
+                <div class="form-content">
+                    <select name="settings[smtp_secure]" id="smtp_secure">
+                        <option <?= setting('smtp_secure') == 'tls' ? 'selected' : null ?> value="tls">TLS</option>
+                        <option <?= setting('smtp_secure') == 'ssl' ? 'selected' : null ?> value="ssl">SSL</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <label>SMTP Port</label>
+                <div class="form-content">
+                    <input type="text" name="settings[smtp_port]" value="<?= setting('smtp_port') ?>" placeholder="SMTP Port">
+                </div>
+            </li>
+        </ul>
         <ul>
             <li class="submit">
                 <input type="hidden" name="submit" value="1">
@@ -170,5 +222,16 @@
         </ul>
     </form>
 </div>
+
+<script>
+    function hidePassword() {
+        const input = document.getElementById('password');
+        if (input.type === "password") {
+            input.type = "text"
+        } else {
+            input.type = "password"
+        }
+    }
+</script>
 
 <?php require adminView('static/footer') ?>

@@ -43,3 +43,38 @@ function permissionPage()
 {
     require adminView('permission-denied');
 }
+
+
+function sendEmail($email, $name, $subject, $message)
+{
+
+    $mail = new PHPMailer(true);
+
+    try {
+
+        // $mail->SMTPDebug = 2;
+        $mail->isSMTP();
+        $mail->Host       = setting('smtp_host');
+        $mail->SMTPAuth   = true;
+        $mail->Username   = setting('smtp_email');
+        $mail->Password   = setting('smtp_password');
+        $mail->SMTPSecure = setting('smtp_secure');
+        $mail->Port       = setting('smtp_port');
+        $mail->CharSet = 'UTF-8';
+
+        $mail->setFrom(setting('smtp_email'), setting('smtp_sender_name'));
+        $mail->addAddress($email, $name);
+
+
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body    = $message;
+
+
+        $mail->send();
+
+        return true;
+    } catch (Exception $e) {
+        return false;
+    }
+}
