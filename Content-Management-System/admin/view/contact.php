@@ -47,7 +47,7 @@
                     <td>
                         <?= $row['contact_content'] ?>
                     </td>
-                    <td>
+                    <td title="<?= $row['contact_date'] ?>">
                         <?= timeConvert($row['contact_date']) ?>
                         <?php if ($row['contact_read_date']) : ?>
                             <div style="color: #999; font-size:12px">

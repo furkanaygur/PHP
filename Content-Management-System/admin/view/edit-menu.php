@@ -45,7 +45,7 @@
         </ul>
         <div class="menu-btn">
             <a href="#" id="add-menu" class="btn ">Add Menu</a>
-            <button type="submit" value="1" name="submit">Save</button>
+            <button type="submit" value="1" name="submit">Submit</button>
         </div>
     </form>
 </div>

@@ -20,7 +20,7 @@ $menus = [
     ],
     'users' => [
         'title' => 'Users',
-        'icon' => 'user',
+        'icon' => 'users-cog',
         'permissions' => [
             'view' => 'View',
             'edit' => 'Edit',
@@ -30,6 +30,16 @@ $menus = [
         //     'add-user' => 'Add User',
         //     'list-users' => 'List Users'
         // ]
+    ],
+    'pages' => [
+        'title' => 'Pages',
+        'icon' => 'file',
+        'permissions' => [
+            'view' => 'View',
+            'add' => 'Add',
+            'edit' => 'Edit',
+            'delete' => 'Delete'
+        ]
     ],
     'categories' => [
         'title' => 'Categories',
@@ -43,7 +53,7 @@ $menus = [
     ],
     'contact' => [
         'title' => 'Contacts',
-        'icon' => 'envelope',
+        'icon' => 'address-book',
         'permissions' => [
             'send' => 'Send',
             'view' => 'View',
@@ -53,7 +63,7 @@ $menus = [
     ],
     'menu-settings' => [
         'title' => 'Menu Settings',
-        'icon' => 'bars',
+        'icon' => 'sliders-h',
         'permissions' => [
             'add' => 'Add',
             'view' => 'View',
@@ -63,7 +73,7 @@ $menus = [
     ],
     'settings' => [
         'title' => 'Settings',
-        'icon' => 'cog',
+        'icon' => 'cogs',
         'permissions' => [
             'view' => 'View',
             'edit' => 'Edit'

@@ -24,8 +24,8 @@
                         </a>
                     </td>
 
-                    <td>
-                        <span class="date"><?= $row['menu_date'] ?></span>
+                    <td title="<?= $row['menu_date'] ?>">
+                        <span class="date"><?= timeConvert($row['menu_date']) ?></span>
                     </td>
                     <td class="hide">
                         <a href="<?= adminURL('edit-menu?id=') . $row['menu_ID'] ?>" class="btn" id="updatebtn">Update</a>

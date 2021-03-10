@@ -1,6 +1,6 @@
 <?php
 $meta = [
-    'title' => 'LOGIN',
+    'title' => 'LOGIN | Furkan Aygur',
 ];
 
 

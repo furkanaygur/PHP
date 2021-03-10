@@ -1,7 +1,7 @@
 <?php require view('static/header'); ?>
 <section class="jumbotron text-center">
     <div class="container">
-        <h1>BLOG</h1>
+        <h1>Blog</h1>
     </div>
 </section>
 <div class="container">
@@ -72,13 +72,15 @@
                 Categories
             </h4>
             <ul class="list-group mb-4">
-                <li class="list-group-item">
-                    <a href="#" style="color: #333;" class="d-flex justify-content-between align-items-center">
-                        PHP
-                        <span class="badge badge-dark badge-pill">14</span>
-                    </a>
-                </li>
-                <li class="list-group-item active">
+                <?php foreach (Blog::Categories() as $category) : ?>
+                    <li class="list-group-item">
+                        <a href="#" style="color: #333;" class="d-flex justify-content-between align-items-center">
+                            <?= $category['category_name'] ?>
+                            <!-- <span class="badge badge-dark badge-pill">14</span> -->
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+                <!-- <li class="list-group-item active">
                     <a href="#" style="color: #333;" class="d-flex justify-content-between align-items-center">
                         CSS
                         <span class="badge badge-dark badge-pill">2</span>
@@ -95,7 +97,7 @@
                         Daily Life
                         <span class="badge badge-dark badge-pill">15</span>
                     </a>
-                </li>
+                </li> -->
             </ul>
             <h4 class="pb-3">
                 <i class="fa fa-hashtag"></i>

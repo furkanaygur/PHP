@@ -34,8 +34,8 @@
                     <td>
                         <?= user_ranks($row['user_rank']) ?>
                     </td>
-                    <td>
-                        <span class="date"><?= $row['user_date'] ?></span>
+                    <td title="<?= $row['user_date'] ?>">
+                        <span class="date"><?= timeConvert($row['user_date']) ?></span>
                     </td>
                     <td>
                         <a href="<?= adminURL('edit-user?id=') . $row['user_ID'] ?>" id="updatebtn" class="btn">Update</a>

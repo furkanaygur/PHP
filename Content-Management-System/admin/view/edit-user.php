@@ -118,7 +118,7 @@
                 </li> -->
             <li class="submit">
 
-                <button type="submit" name="submit" value="1">Save Changes</button>
+                <button type="submit" name="submit" value="1">Submit</button>
             </li>
         </ul>
     </form>

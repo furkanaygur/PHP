@@ -100,7 +100,7 @@
         <ul>
             <li class="submit">
                 <input type="hidden" name="submit" value="1">
-                <button type="submit">Save Settings</button>
+                <button type="submit">Submit</button>
             </li>
         </ul>
     </form>

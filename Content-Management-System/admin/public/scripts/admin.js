@@ -5,6 +5,8 @@
  */
 $(function () {
 
+    
+
     $('.box >h3').append('<button type="button" class="toggle"><span class="fa fa-caret-up"></span></button>');
 
     $(document).on('click', 'button.toggle', function (e) {
@@ -137,4 +139,19 @@ $(function () {
         $(this).parent().hide();
         e.preventDefault();
     });
+
+
+    var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    tinymce.init({
+        selector: 'textarea.editor',
+        skin: useDarkMode ? 'oxide-dark' : 'oxide',
+        height:'350px',
+        width: '600px',
+        resize: 'both'
+    });
+
+
+
+
 });

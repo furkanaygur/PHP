@@ -15,11 +15,13 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <!--    <script src="https://cdn.ckeditor.com/4.5.7/basic/ckeditor.js"></script>-->
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         var api_url = '<?= adminURL('api') ?>'
     </script>
     <script src="<?= adminPublicURL('scripts/api.js') ?>"></script>
     <script src="<?= adminPublicURL('scripts/admin.js') ?>"></script>
+
 
 
     <style>

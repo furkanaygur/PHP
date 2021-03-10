@@ -1,7 +1,7 @@
 <?php require adminView('static/header') ?>
 <div class="box-">
     <h1>
-        Edit Category (#<?= $row['category_ID'] ?>)
+        Add Page
     </h1>
 </div>
 
@@ -61,15 +61,16 @@
             <div tab-content>
                 <ul>
                     <li>
-                        <label>Category Name</label>
+                        <label>Page Title</label>
                         <div class="form-content">
-                            <input type="text" name="category_name" value="<?= post('category_name') ? post('category_name') : $row['category_name'] ?>" placeholder="Category Name">
+                            <input type="text" name="page_title" value="<?= post('page_title') ?>" placeholder="Page Title">
+                            <?= post('page_content') ?>
                         </div>
                     </li>
                     <li>
-                        <label>Category Template</label>
+                        <label>Page Content</label>
                         <div class="form-content">
-                            <input type="text" name="category_template" value="<?= post('category_template') ? post('category_template') : $row['category_template'] ?>" placeholder="Category Template">
+                            <textarea class="editor" type="text" name="page_content" placeholder="Page Content" rows="5"><?= post('page_content') ?></textarea>
                         </div>
                     </li>
                 </ul>
@@ -77,21 +78,21 @@
             <div tab-content>
                 <ul>
                     <li>
-                        <label>Seo URL</label>
+                        <label>Page Seo URL</label>
                         <div class="form-content">
-                            <input type="text" name="category_url" value="<?= post('category_url') ? post('category_url') : $row['category_url'] ?>" placeholder="Seo URL">
+                            <input type="text" name="page_url" value="<?= post('page_url') ?>" placeholder="Page Seo URL">
                         </div>
                     </li>
                     <li>
-                        <label>Seo Title</label>
+                        <label>Page Seo Title</label>
                         <div class="form-content">
-                            <input type="text" name="category_seo[title]" placeholder="Seo Title" value="<?= $category_seo['title'] ?>">
+                            <input type="text" name="page_seo[title]" placeholder="Page Seo Title">
                         </div>
                     </li>
                     <li>
-                        <label>Seo Description</label>
+                        <label>Page Seo Description</label>
                         <div class="form-content">
-                            <textarea type="text" name="category_seo[description]" placeholder="Seo Description" rows="5"><?= $category_seo['description'] ?></textarea>
+                            <textarea type="text" name="page_seo[description]" placeholder="Page Seo Description" rows="5"></textarea>
                         </div>
                     </li>
                 </ul>

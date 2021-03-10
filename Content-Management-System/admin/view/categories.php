@@ -46,7 +46,7 @@
                         </a>
                     </td>
 
-                    <td>
+                    <td title="<?= $row['category_date'] ?>">
                         <span class="date"><?= timeConvert($row['category_date']) ?></span>
                     </td>
                     <td class="hide">
