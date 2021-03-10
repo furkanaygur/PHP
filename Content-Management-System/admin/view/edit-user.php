@@ -29,64 +29,62 @@
     }
 </style>
 
-<div class="content">
+<div class="box-">
+    <h1>
+        Update User (#<?= $id ?>)
+    </h1>
+</div>
 
-    <div class="box-">
-        <h1>
-            Update User (#<?= $id ?>)
-        </h1>
-    </div>
+<div class="clear" style="height: 10px;"></div>
 
-    <div class="clear" style="height: 10px;"></div>
+<div class="box-">
+    <form action="" method="post" class="form label">
+        <ul>
+            <li>
+                <label for="user_name">User Name</label>
+                <div class="form-content">
+                    <input type="text" value="<?= post('user_name') ? post('user_name') : $row['user_name'] ?>" id="user_name" name="user_name" placeholder="User Name">
+                </div>
+            </li>
+            <li>
+                <label for="user_email">User Email</label>
+                <div class="form-content">
+                    <input type="text" value="<?= post('user_email') ? post('user_email') : $row['user_email'] ?>" id="user_email" name="user_email" placeholder="User Email">
+                </div>
+            </li>
+            <li>
+                <label for="select">User Role</label>
+                <div class="form-content">
+                    <select name="user_rank" id="user_rank">
+                        <option value=""> -Choose Role- </option>
+                        <?php foreach (user_ranks() as $id => $rank) : ?>
+                            <option <?= (post('user_rank') ? post('user_rank') : $row['user_rank']) == $id ? 'selected' : null ?> value="<?= $id ?>"><?= $rank ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <label for="select">Permissions</label>
+                <div class="form-content">
+                    <div class="permissions">
+                        <?php foreach ($menus as $url => $menu) : ?>
+                            <div>
+                                <h3><?= $menu['title'] ?></h3>
+                            </div>
+                            <div class="list">
+                                <?php foreach ($menu['permissions'] as $key => $permission) : ?>
+                                    <label for="<?= $permission . $url ?>">
+                                        <input type="checkbox" value="1" <?= (isset($permissions[$url][$key]) && $permissions[$url][$key] == 1) ? 'checked' : null ?> name="user_permissions[<?= $url ?>][<?= $key ?>]" id="<?= $permission . $url ?>">
 
-    <div class="box-">
-        <form action="" method="post" class="form label">
-            <ul>
-                <li>
-                    <label for="user_name">User Name</label>
-                    <div class="form-content">
-                        <input type="text" value="<?= post('user_name') ? post('user_name') : $row['user_name'] ?>" id="user_name" name="user_name" placeholder="User Name">
+                                        <?= $permission ?>
+                                    </label>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
-                </li>
-                <li>
-                    <label for="user_email">User Email</label>
-                    <div class="form-content">
-                        <input type="text" value="<?= post('user_email') ? post('user_email') : $row['user_email'] ?>" id="user_email" name="user_email" placeholder="User Email">
-                    </div>
-                </li>
-                <li>
-                    <label for="select">User Role</label>
-                    <div class="form-content">
-                        <select name="user_rank" id="user_rank">
-                            <option value=""> -Choose Role- </option>
-                            <?php foreach (user_ranks() as $id => $rank) : ?>
-                                <option <?= (post('user_rank') ? post('user_rank') : $row['user_rank']) == $id ? 'selected' : null ?> value="<?= $id ?>"><?= $rank ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                </li>
-                <li>
-                    <label for="select">Permissions</label>
-                    <div class="form-content">
-                        <div class="permissions">
-                            <?php foreach ($menus as $url => $menu) : ?>
-                                <div>
-                                    <h3><?= $menu['title'] ?></h3>
-                                </div>
-                                <div class="list">
-                                    <?php foreach ($menu['permissions'] as $key => $permission) : ?>
-                                        <label for="<?= $permission . $url ?>">
-                                            <input type="checkbox" value="1" <?= (isset($permissions[$url][$key]) && $permissions[$url][$key] == 1) ? 'checked' : null ?> name="user_permissions[<?= $url ?>][<?= $key ?>]" id="<?= $permission . $url ?>">
-
-                                            <?= $permission ?>
-                                        </label>
-                                    <?php endforeach; ?>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-                </li>
-                <!-- <li>
+                </div>
+            </li>
+            <!-- <li>
                     <label for="description">Description</label>
                     <div class="form-content">
                         <textarea name="description" id="description" cols="30" rows="5"></textarea>
@@ -118,14 +116,12 @@
                         </p>
                     </div>
                 </li> -->
-                <li class="submit">
+            <li class="submit">
 
-                    <button type="submit" name="submit" value="1">Save Changes</button>
-                </li>
-            </ul>
-        </form>
-    </div>
-
+                <button type="submit" name="submit" value="1">Save Changes</button>
+            </li>
+        </ul>
+    </form>
 </div>
 
 <?php require adminView('static/footer'); ?>

@@ -18,8 +18,9 @@
     <script>
         var api_url = '<?= adminURL('api') ?>'
     </script>
-    <script src="<?= adminPublicURL('scripts/admin.js') ?>"></script>
     <script src="<?= adminPublicURL('scripts/api.js') ?>"></script>
+    <script src="<?= adminPublicURL('scripts/admin.js') ?>"></script>
+
 
     <style>
         .handle {
@@ -72,11 +73,40 @@
             background-color: #f7faa0 !important;
             visibility: visible !important;
         }
+
+        .success-msg {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: green;
+            text-align: center;
+            box-sizing: border-box;
+            font-size: 18px;
+            color: #fff;
+            padding: 20px;
+            z-index: 100;
+            font-weight: 300;
+        }
+
+        .success-close-btn {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            color: #fff;
+            font-size: 20px;
+        }
     </style>
 
 </head>
 
 <body>
+    <div class="success-msg">
+        <a href="#" class="success-close-btn"><i class="fa fa-times"></i> </a>
+        <div>Succsessfully</div>
+    </div>
+
     <?php if (session('user_rank') && session('user_rank') != 3) : ?>
         <!--navbar-->
         <div class="navbar">
