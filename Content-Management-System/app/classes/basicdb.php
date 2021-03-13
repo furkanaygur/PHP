@@ -34,8 +34,8 @@ class basicdb extends \PDO
     private $paginationLimit;
     private $html;
     public $debug = false;
-    public $paginationItem = '<li class="[active]">
-        <a href="[url]">[text]</a>
+    public $paginationItem = '<li class="page-item [active]">
+        <a class="page-link" href="[url]">[text]</a>
     </li>';
     public $reference = [
         'NOW()'

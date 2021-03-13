@@ -1,7 +1,7 @@
 <?php require view('static/header'); ?>
 <section class="jumbotron text-center">
     <div class="container">
-        <h1>Blog</h1>
+        <h1><?= $row['category_name'] ?></h1>
     </div>
 </section>
 <div class="container">
@@ -28,7 +28,7 @@
                     </div>
                 <?php endforeach; ?>
 
-                <?php if ($totalRecord >= $pageLimit) : ?>
+                <?php if ($totalRecord > $pageLimit) : ?>
                     <div class="pagination-container text-center mb-4">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">

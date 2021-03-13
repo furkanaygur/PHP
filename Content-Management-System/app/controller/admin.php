@@ -51,6 +51,16 @@ $menus = [
             'delete' => 'Delete'
         ]
     ],
+    'posts' => [
+        'title' => 'Posts',
+        'icon' => 'rss',
+        'permissions' => [
+            'add' => 'Add',
+            'view' => 'View',
+            'edit' => 'Edit',
+            'delete' => 'Delete'
+        ]
+    ],
     'contact' => [
         'title' => 'Contacts',
         'icon' => 'address-book',

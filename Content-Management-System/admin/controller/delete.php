@@ -12,10 +12,16 @@ if (permission($table, 'delete')) {
     permissionPage();
 }
 
+$query = $db->delete($table)->where($column, $id)->done();
 
-$query = $db->prepare('DELETE FROM ' . $table . ' WHERE ' . $column . ' = :id');
-$query->execute([
-    'id' => $id
-]);
+// $query = $db->prepare('DELETE FROM ' . $table . ' WHERE ' . $column . ' = :id');
+// $query->execute([
+//     'id' => $id
+// ]);
+
+if ($table == 'posts' && $query) {
+    $db->delete('post_tags')->where('post_tag_ID', $id)->done();
+}
+
 
 header('Location:' . $_SERVER['HTTP_REFERER']);

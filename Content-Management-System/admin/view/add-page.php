@@ -64,7 +64,6 @@
                         <label>Page Title</label>
                         <div class="form-content">
                             <input type="text" name="page_title" value="<?= post('page_title') ?>" placeholder="Page Title">
-                            <?= post('page_content') ?>
                         </div>
                     </li>
                     <li>

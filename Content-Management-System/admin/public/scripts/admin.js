@@ -147,11 +147,15 @@ $(function () {
         selector: 'textarea.editor',
         skin: useDarkMode ? 'oxide-dark' : 'oxide',
         height:'350px',
-        width: '600px',
+        width: '500px',
         resize: 'both'
     });
 
 
-
+    $('.tagsinput').tagsInput({
+        'autocomplete': {
+            source : tags
+        }
+    });
 
 });
