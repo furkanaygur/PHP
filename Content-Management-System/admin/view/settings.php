@@ -53,25 +53,28 @@
     <div class="admin-tab">
         <ul tab-list>
             <li>
-                <a href="#">General Settings</a>
+                <a href="#">General</a>
             </li>
             <li>
-                <a href="#">Search Settings</a>
+                <a href="#">Search</a>
             </li>
             <li>
-                <a href="#">Home Page Settings</a>
+                <a href="#">Home Page</a>
             </li>
             <li>
-                <a href="#">Footer Settings</a>
+                <a href="#">Footer</a>
             </li>
             <li>
-                <a href="#">Soical Media Settings</a>
+                <a href="#">Soical Media</a>
+            </li>
+            <li>
+                <a href="#">Comments</a>
             </li>
             <li>
                 <a href="#">Maintenance Mode</a>
             </li>
             <li>
-                <a href="#">SMTP Mail Settings</a>
+                <a href="#">SMTP Mail</a>
             </li>
         </ul>
     </div>
@@ -200,6 +203,28 @@
                         </div>
                     </li>
 
+                </ul>
+            </div>
+            <div tab-content>
+                <h1>Comment</h1> <br>
+                <ul>
+                    <li>
+                        <label>Visitor Comment:</label>
+                        <div class="form-content">
+                            <select name="settings[visitor_comment]" id="visitor_comment">
+                                <option <?= setting('visitor_comment') == 1 ? 'selected' : null ?> value="1"> Unapproved </option>
+                                <option <?= setting('visitor_comment') == 2 ? 'selected' : null ?> value="2"> Approved </option>
+                            </select>
+                        </div>
+                        <br>
+                        <label>User Comment:</label>
+                        <div class="form-content">
+                            <select name="settings[user_comment]" id="user_comment">
+                                <option <?= setting('user_comment') == 1 ? 'selected' : null ?> value="1"> Unapproved </option>
+                                <option <?= setting('user_comment') == 2 ? 'selected' : null ?> value="2"> Approved </option>
+                            </select>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div tab-content>

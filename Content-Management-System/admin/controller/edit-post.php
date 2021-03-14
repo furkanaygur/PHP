@@ -73,41 +73,41 @@ if (post('submit')) {
             if ($query) {
                 $post_ID = $id;
                 $post_tags = array_map('trim', explode(',', $post_tags));
-                foreach ($post_tags as $tag) {
-                    $row = $db->from('tags')->where('tag_url', permalink($tag))->first();
+                $post_tags = array_filter($post_tags);
+                if (count($post_tags) > 0) {
+                    foreach ($post_tags as $tag) {
+                        $row = $db->from('tags')->where('tag_url', permalink($tag))->first();
 
-                    // is tag exist ? 
-                    if (!$row) {
-                        $tagInsert = $db->insert('tags')->set([
-                            'tag_name' => $tag,
-                            'tag_url' => permalink($tag)
-                        ]);
-                        $tagID = $db->lastId();
-                    } else {
-                        $tagID = $row['tag_ID'];
-                    }
+                        // is tag exist ? 
+                        if (!$row) {
+                            $tagInsert = $db->insert('tags')->set([
+                                'tag_name' => $tag,
+                                'tag_url' => permalink($tag)
+                            ]);
+                            $tagID = $db->lastId();
+                        } else {
+                            $tagID = $row['tag_ID'];
+                        }
 
-                    // Does post have a tag? 
-                    $tags = $db->from('post_tags')
-                        ->where('post_tag_ID', $post_ID)
-                        ->where('tag_ID', $tagID)
-                        ->first();
+                        // Does post have a tag? 
+                        $tags = $db->from('post_tags')
+                            ->where('post_tag_ID', $post_ID)
+                            ->where('tag_ID', $tagID)
+                            ->first();
 
-                    if (empty($tags)) {
-                        $query = $db->insert('post_tags')->set([
-                            'post_tag_ID' => $post_ID,
-                            'tag_ID' => $tagID
-                        ]);
+                        if (empty($tags)) {
+                            $query = $db->insert('post_tags')->set([
+                                'post_tag_ID' => $post_ID,
+                                'tag_ID' => $tagID
+                            ]);
+                        }
                     }
                 }
-
                 $deletedTag = array_diff($tagHtml, $post_tags);
-                print_r($deletedTag);
 
                 if ($deletedTag) {
                     foreach ($deletedTag as $key => $deleteTag) {
                         foreach ($allTags as $tag) {
-                            echo 'sa';
                             if ($tag['tag_name'] === $deleteTag) {
                                 $db->delete('post_tags')->where('tag_ID', $tag['tag_ID'])
                                     ->where('post_tag_ID', $id)->done();

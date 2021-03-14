@@ -55,8 +55,26 @@ $menus = [
         'title' => 'Posts',
         'icon' => 'rss',
         'permissions' => [
-            'add' => 'Add',
             'view' => 'View',
+            'add' => 'Add',
+            'edit' => 'Edit',
+            'delete' => 'Delete'
+        ]
+    ],
+    'tags' => [
+        'title' => 'Tags',
+        'icon' => 'tag',
+        'permissions' => [
+            'view' => 'View',
+            'add' => 'Add',
+            'edit' => 'Edit',
+            'delete' => 'Delete'
+        ]
+    ],
+    'comments' => [
+        'title' => 'Comments',
+        'icon' => 'comments',
+        'permissions' => [
             'edit' => 'Edit',
             'delete' => 'Delete'
         ]
@@ -65,8 +83,8 @@ $menus = [
         'title' => 'Contacts',
         'icon' => 'address-book',
         'permissions' => [
-            'send' => 'Send',
             'view' => 'View',
+            'send' => 'Send',
             'edit' => 'Edit',
             'delete' => 'Delete'
         ]
@@ -75,8 +93,8 @@ $menus = [
         'title' => 'Menu Settings',
         'icon' => 'sliders-h',
         'permissions' => [
-            'add' => 'Add',
             'view' => 'View',
+            'add' => 'Add',
             'edit' => 'Edit',
             'delete' => 'Delete'
         ]

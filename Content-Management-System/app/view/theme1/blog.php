@@ -32,21 +32,25 @@
                     <div class="pagination-container text-center mb-4">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
-                                <li class="page-item">
-                                    <a class="page-link" href="<?= siteURL('blog?' . $pageParam . '=' . $db->prevPage()) ?>" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                </li>
+                                <?php if ($currentPageCount != $db->prevPage()) : ?>
+                                    <li class="page-item">
+                                        <a class="page-link" href="<?= siteURL('blog?' . $pageParam . '=' . $db->prevPage()) ?>" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
 
                                 <?= $db->showPagination(siteURL('blog?' . $pageParam . '=[page]')) ?>
 
-                                <li class="page-item">
-                                    <a class="page-link" href="<?= siteURL('blog?' . $pageParam . '=' . $db->nextPage()) ?>" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </li>
+                                <?php if ($currentPageCount != $db->nextPage()) : ?>
+                                    <li class="page-item">
+                                        <a class="page-link" href="<?= siteURL('blog?' . $pageParam . '=' . $db->nextPage()) ?>" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
                             </ul>
                         </nav>
                     </div>
@@ -67,7 +71,7 @@
                         <a href=" <?= siteURL('blog/category/') . $category['category_url'] ?>" style="color: #333;" class="d-flex justify-content-between align-items-center">
                             <?= $category['category_name'] ?>
 
-                            <!-- <span class="badge badge-dark badge-pill">14</span> -->
+                            <span class="badge badge-dark badge-pill"><?= $category['total'] ?></span>
                         </a>
                     </li>
                 <?php endforeach; ?>

@@ -4,8 +4,8 @@
         <h1 class="jumbotron-heading"><?= setting('welcome_title') ? setting('welcome_title') : 'Welcome!' ?></h1>
         <p class="lead text-muted"><?= setting('welcome_text') ? setting('welcome_text') : 'Here it is Furkan\'s Site' ?></p>
         <p>
-            <a href="#" class="btn btn-primary my-2">Blog</a>
-            <a href="#" class="btn btn-secondary my-2">Contact</a>
+            <a href="<?= siteURL('blog/') ?>" class="btn btn-primary my-2">Blog</a>
+            <a href="<?= siteURL('contact/') ?>" class="btn btn-secondary my-2">Contact</a>
         </p>
     </div>
 </section>

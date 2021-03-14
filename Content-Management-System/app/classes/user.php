@@ -6,6 +6,7 @@ class User
     {
         $_SESSION['user_ID'] = $data['user_ID'];
         $_SESSION['user_name'] = $data['user_name'];
+        $_SESSION['user_email'] = $data['user_email'];
         if (isset($data['user_rank']) || isset($data['user_permissions'])) {
             $_SESSION['user_rank'] = $data['user_rank'];
             $_SESSION['user_permissions'] = $data['user_permissions'];

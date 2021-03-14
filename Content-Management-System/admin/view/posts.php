@@ -49,7 +49,7 @@
                         <?= timeConvert($row['post_date']) ?>
                     </td>
                     <td>
-                        <a href="<?= siteURL('page/' . $row['post_url']) ?>" class="btn" target="_blank">View</a>
+                        <a href="<?= siteURL('blog/' . $row['post_url']) ?>" class="btn" target="_blank">View</a>
                         <a href="<?= adminURL('edit-post?id=') . $row['post_ID'] ?>" id="updatebtn" class="btn">Update</a>
                         <a onclick="return confirm('Are you sure?')" href="<?= adminURL('delete?table=posts&column=post_ID&id=') . $row['post_ID'] ?>" id="deletebtn" style="background-color: #ff3333;" class="btn">Delete</a>
                     </td>

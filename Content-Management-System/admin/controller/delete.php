@@ -23,5 +23,8 @@ if ($table == 'posts' && $query) {
     $db->delete('post_tags')->where('post_tag_ID', $id)->done();
 }
 
+if ($table == 'tags' && $query) {
+    $db->delete('post_tags')->where('tag_ID', $id)->done();
+}
 
 header('Location:' . $_SERVER['HTTP_REFERER']);
