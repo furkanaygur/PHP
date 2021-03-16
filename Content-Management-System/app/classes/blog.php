@@ -27,4 +27,10 @@ class Blog
         global $db;
         return $db->from('posts')->where('post_ID', $postID)->where('post_status', 2)->first();
     }
+
+    public static function getRandomTags($limit = 10)
+    {
+        global $db;
+        return $db->from('tags')->orderby('', 'rand()')->limit(0, $limit)->all();
+    }
 }

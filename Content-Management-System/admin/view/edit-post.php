@@ -84,7 +84,7 @@
                         <div class="form-content">
                             <select name="post_categories[]" multiple size="6">
                                 <?php foreach ($categories as $category) : ?>
-                                    <option <?= in_array($category['category_ID'], explode(',', $row['post_categories'])) ? 'selected' : null ?> value="<?= $category['category_ID'] ?>"> <?= $category['category_name'] ?> </option>
+                                    <option <?= post('post_categories') ? (in_array($category['category_ID'], post('post_categories')) ? 'selected' : null)  : (in_array($category['category_ID'], explode(',', $row['post_categories'])) ? 'selected' : null) ?> value="<?= $category['category_ID'] ?>"> <?= $category['category_name'] ?> </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

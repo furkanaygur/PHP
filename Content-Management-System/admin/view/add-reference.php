@@ -1,7 +1,7 @@
 <?php require adminView('static/header') ?>
 <div class="box-">
     <h1>
-        Add Post
+        Add Reference
     </h1>
 </div>
 
@@ -51,56 +51,47 @@
                 <a href="#">General Settings</a>
             </li>
             <li>
-                <a href="#">Post Seo Settings</a>
+                <a href="#">Seo Settings</a>
             </li>
         </ul>
     </div>
 
-    <form action="" method="post" class="form label">
+    <form action="" method="post" class="form label" enctype="multipart/form-data">
         <div>
             <div tab-content>
                 <ul>
                     <li>
-                        <label>Post Title</label>
+                        <label>Reference Title</label>
                         <div class="form-content">
-                            <input type="text" name="post_title" value="<?= post('post_title') ?>" placeholder="Post Title">
+                            <input type="text" name="reference_title" value="<?= post('reference_title') ?>" placeholder="Reference Title">
                         </div>
                     </li>
                     <li>
-                        <label>Post Short Content</label>
+                        <label>Reference Content</label>
                         <div class="form-content">
-                            <textarea class="editor" type="text" name="post_short_content" placeholder="Post short_Content" rows="5"><?= post('post_short_content') ?></textarea>
+                            <textarea class="editor" type="text" name="reference_content" placeholder="Reference Content" rows="5"><?= post('reference_content') ?></textarea>
                         </div>
                     </li>
                     <li>
-                        <label>Post Content</label>
+                        <label>Reference Image</label>
                         <div class="form-content">
-                            <textarea class="editor" type="text" name="post_content" placeholder="Post Content" rows="5"><?= post('post_content') ?></textarea>
+                            <input type="file" name="reference_image"></input>
                         </div>
                     </li>
                     <li>
-                        <label>Post Categories <?php print_r('post') ?></label>
+                        <label>Reference Categories</label>
                         <div class="form-content">
-                            <select name="post_categories[]" multiple size="6">
+                            <select name="reference_categories[]" multiple size="6">
                                 <?php foreach ($categories as $category) : ?>
-                                    <option <?= post('post_categories') ? (in_array($category['category_ID'], post('post_categories'))  ? 'selected' : null) : null; ?> value="<?= $category['category_ID'] ?>"> <?= $category['category_name'] ?> </option>
+                                    <option <?= post('reference_categories') ? (in_array($category['category_ID'], post('reference_categories')) ? 'selected' : null) : null ?> value="<?= $category['category_ID'] ?>"> <?= $category['category_name'] ?> </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
                     </li>
                     <li>
-                        <label>Post Status</label>
-                        <div class="form-content">
-                            <select name="post_status">
-                                <option value="1"> Draft </option>
-                                <option value="2"> Publish </option>
-                            </select>
-                        </div>
-                    </li>
-                    <li>
-                        <label>Post Tags</label>
+                        <label>Reference Tags</label>
                         <div class="form-content" style="min-width: 410px;">
-                            <input class="tagsinput" type="text" name="post_tags" placeholder="Post Tags" rows="5" value="<?= post('post_tags') ?>">
+                            <input class="tagsinput" type="text" name="reference_tags" placeholder="Reference Tags" rows="5" value="<?= post('reference_tags') ?>">
                         </div>
                     </li>
                 </ul>
@@ -108,21 +99,21 @@
             <div tab-content>
                 <ul>
                     <li>
-                        <label>Post Seo URL</label>
+                        <label>Reference Seo URL</label>
                         <div class="form-content">
-                            <input type="text" name="post_url" value="<?= post('post_url') ?>" placeholder="Post Seo URL">
+                            <input type="text" name="reference_url" value="<?= post('reference_url') ?>" placeholder="Reference Seo URL">
                         </div>
                     </li>
                     <li>
-                        <label>Post Seo Title</label>
+                        <label>Reference Seo Title</label>
                         <div class="form-content">
-                            <input type="text" name="post_seo[title]" placeholder="Post Seo Title">
+                            <input type="text" name="reference_seo[title]" placeholder="Reference Seo Title">
                         </div>
                     </li>
                     <li>
-                        <label>Post Seo Description</label>
+                        <label>Reference Seo Description</label>
                         <div class="form-content">
-                            <textarea type="text" name="post_seo[description]" placeholder="Post Seo Description" rows="5"></textarea>
+                            <textarea type="text" name="reference_seo[description]" placeholder="Reference Seo Description" rows="5"></textarea>
                         </div>
                     </li>
                 </ul>
@@ -138,7 +129,7 @@
 </div>
 
 <script>
-    var tags = ['<?= implode("','", $tagsArr) ?>']
+    var tags = []
 </script>
 
 <?php require adminView('static/footer') ?>

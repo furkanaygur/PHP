@@ -1,12 +1,12 @@
 <?php require view('static/header'); ?>
 <section class="jumbotron text-center">
     <div class="container">
-        <h1><?= $row['category_name'] ?></h1>
+        <h1> Search Results</h1>
     </div>
 </section>
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
 
             <h4 class="pb-3">Recent Topics</h4>
             <?php if ($query) : ?>
@@ -34,16 +34,16 @@
                             <ul class="pagination">
                                 <?php if ($currentPageCount != $db->prevPage()) : ?>
                                     <li class="page-item">
-                                        <a class="page-link" href="<?= siteURL('blog/category/' . route(2) . '?' . $pageParam . '=' . $db->prevPage()) ?>" aria-label="Previous">
+                                        <a class="page-link" href="<?= siteURL('blog-search/?q=' . get('q') .  '&' . $pageParam . '=' . $db->prevPage()) ?>" aria-label="Previous">
                                             <span aria-hidden="true">&laquo;</span>
                                             <span class="sr-only">Previous</span>
                                         </a>
                                     </li>
                                 <?php endif; ?>
-                                <?= $db->showPagination(siteURL('blog/category/' . route(2) . '?' . $pageParam . '=[page]')) ?>
+                                <?= $db->showPagination(siteURL('blog-search/?q=' . get('q') .  '&' . $pageParam . '=[page]')) ?>
                                 <?php if ($currentPageCount != $db->nextPage()) : ?>
                                     <li class="page-item">
-                                        <a class="page-link" href="<?= siteURL('blog/category/' . route(2) . '?' . $pageParam . '=' . $db->nextPage()) ?>" aria-label="Next">
+                                        <a class="page-link" href="<?= siteURL('blog-search/?q=' . get('q') .  '&' . $pageParam . '=' . $db->nextPage()) ?>" aria-label="Next">
                                             <span aria-hidden="true">&raquo;</span>
                                             <span class="sr-only">Next</span>
                                         </a>
@@ -57,31 +57,6 @@
                 <div class="alert alert-warning"> <strong> There is no blog post</strong> </div>
             <?php endif; ?>
 
-        </div>
-        <div class="col-md-4">
-            <h4 class="pb-3">
-                <i class="fa fa-folder"></i>
-                Categories
-            </h4>
-            <ul class="list-group mb-4">
-                <?php foreach (Blog::Categories() as $category) : ?>
-                    <li class="list-group-item <?= $category['category_url'] == route(2) ? "active" : null ?>">
-                        <a href=" <?= siteURL('blog/category/') . $category['category_url'] ?>" style="color: #333;" class="d-flex justify-content-between align-items-center">
-                            <?= $category['category_name'] ?>
-
-                            <span class="badge badge-dark badge-pill"><?= $category['total'] ?></span>
-                        </a>
-                    </li>
-                <?php endforeach; ?>
-
-            </ul>
-            <h4 class="pb-3">
-                <i class="fa fa-hashtag"></i>
-                Tags
-            </h4>
-            <?php foreach (Blog::getRandomTags(10) as $tag) : ?>
-                <a href="<?= siteURL('blog/tag/' . $tag['tag_url']) ?>" class="badge badge-light badge-pill"><?= $tag['tag_name'] ?></a>
-            <?php endforeach; ?>
         </div>
     </div>
 

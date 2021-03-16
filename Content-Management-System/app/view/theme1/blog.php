@@ -75,35 +75,15 @@
                         </a>
                     </li>
                 <?php endforeach; ?>
-                <!-- <li class="list-group-item active">
-                    <a href="#" style="color: #333;" class="d-flex justify-content-between align-items-center">
-                        CSS
-                        <span class="badge badge-dark badge-pill">2</span>
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#" style="color: #333;" class="d-flex justify-content-between align-items-center">
-                        Music
-                        <span class="badge badge-dark badge-pill">1</span>
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#" style="color: #333;" class="d-flex justify-content-between align-items-center">
-                        Daily Life
-                        <span class="badge badge-dark badge-pill">15</span>
-                    </a>
-                </li> -->
             </ul>
             <h4 class="pb-3">
                 <i class="fa fa-hashtag"></i>
                 Tags
             </h4>
-            <a href="#" class="badge badge-light badge-pill">html5</a>
-            <a href="#" class="badge badge-light badge-pill">css</a>
-            <a href="#" class="badge badge-light badge-pill">jquery</a>
-            <a href="#" class="badge badge-light badge-pill">php</a>
-            <a href="#" class="badge badge-light badge-pill">software</a>
-            <a href="#" class="badge badge-light badge-pill">development</a>
+
+            <?php foreach (Blog::getRandomTags(10) as $tag) : ?>
+                <a href="<?= siteURL('blog/tag/' . $tag['tag_url']) ?>" class="badge badge-light badge-pill"><?= $tag['tag_name'] ?></a>
+            <?php endforeach; ?>
         </div>
     </div>
 

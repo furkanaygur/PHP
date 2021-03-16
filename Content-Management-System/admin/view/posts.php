@@ -37,7 +37,7 @@
                     </td>
                     <td>
                         <?php if (!empty($row['post_categories'])) : ?>
-                            <?= $row['post_categories'] ?>
+                            <?= $row['category_name'] ?>
                         <?php else : ?>
                             <span style="font-size:10px; margin-left:10px; color:#999">Add a category</span>
                         <?php endif; ?>

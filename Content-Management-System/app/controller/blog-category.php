@@ -31,7 +31,7 @@ $totalRecord = $db->from('posts')
     ->select('count(DISTINCT post_ID) as total')
     ->join('categories', 'FIND_IN_SET(categories.category_ID, posts.post_categories)')
     ->where('post_status', 2)
-    ->find_in_set('posts.post_categories', $row['category_ID'])
+    ->findInSetReverse('posts.post_categories', $row['category_ID'])
     ->total();
 
 $pageLimit = 1;
@@ -45,7 +45,7 @@ $query = $db->from('posts')
     ->select('posts.*, GROUP_CONCAT(category_name SEPARATOR ", ") as category_name, GROUP_CONCAT(category_url SEPARATOR ", ") as category_url')
     ->join('categories', 'FIND_IN_SET(categories.category_ID, posts.post_categories)')
     ->where('post_status', 2)
-    ->find_in_set('post_categories', $row['category_ID'])
+    ->findInSetReverse('post_categories', $row['category_ID'])
     ->groupby('posts.post_ID')
     ->orderby('post_ID', 'DESC')
     ->limit($pagination['start'], $pagination['limit'])

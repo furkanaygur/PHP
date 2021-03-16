@@ -4,9 +4,7 @@
  * @mail        tayfunerbilen@gmail.com
  */
 $(function () {
-
     
-
     $('.box >h3').append('<button type="button" class="toggle"><span class="fa fa-caret-up"></span></button>');
 
     $(document).on('click', 'button.toggle', function (e) {
@@ -124,6 +122,7 @@ $(function () {
     $('.table-sortable').sortable({
         update: function(event, ui) {
             var postData = $(this).sortable('serialize');
+            console.log(postData);
             postData += '&table=' + $(this).data('table');
             postData += '&where=' + $(this).data('where');
             postData += '&column=' + $(this).data('column');
@@ -150,7 +149,6 @@ $(function () {
         width: '500px',
         resize: 'both'
     });
-
 
     $('.tagsinput').tagsInput({
         'autocomplete': {

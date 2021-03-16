@@ -25,6 +25,9 @@ if (post('submit')) {
 
         $query = $db->update('users')->where('user_ID', $id)->set($data);
         if ($query) {
+            if ($id == session('user_ID')) {
+                $_SESSION['user_permissions'] = $data['user_permissions'];
+            }
             header('Location:' . adminURL('users'));
         } else {
             $error = 'Error';
@@ -35,8 +38,6 @@ if (post('submit')) {
     }
 }
 
-$userPermissions = User::permission($row['user_ID']);
-
-$permissions = json_decode($userPermissions['user_permissions'], true);
+$permissions = json_decode($row['user_permissions'], true);
 
 require adminView('edit-user');

@@ -27,7 +27,6 @@
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="<?= siteURL() ?>">FURKANAYGUR</a>
@@ -71,8 +70,8 @@
                         <a class="nav-link" href="#">Contact</a>
                     </li> -->
                 </ul>
-                <form class="form-inline my-2 my-lg-0 mr-1">
-                    <input class="form-control mr-sm-2" type="search" placeholder="<?= setting('search_placeholder') ?>" aria-label="Search">
+                <form action="<?= siteURL('blog-search') ?>" method="GET" class="form-inline my-2 my-lg-0 mr-1">
+                    <input class="form-control mr-sm-2" name="q" type="search" placeholder="<?= setting('search_placeholder') ?>" value="<?= get('q') ? get('q') : null ?>" aria-label="Search">
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <?php if (session('user_ID')) : ?>
@@ -82,6 +81,9 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="<?= siteURL('profile') ?>">Profile</a>
+                            <?php if (session('user_rank') == 2) : ?>
+                                <a class="dropdown-item" href="<?= adminURL() ?>">Admin Panel</a>
+                            <?php endif; ?>
                             <a class="dropdown-item" href="<?= siteURL('logout') ?>">Logout</a>
                         </div>
                     </div>

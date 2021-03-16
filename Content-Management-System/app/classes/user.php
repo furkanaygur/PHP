@@ -30,16 +30,4 @@ class User
         $query = $db->prepare('INSERT INTO users SET user_name = :username, user_email= :useremail, user_password = :userpassword');
         return $query->execute($data);
     }
-
-    public static function permission($userid)
-    {
-        global $db;
-        $query = $db->prepare('SELECT user_permissions FROM users WHERE user_ID = :id');
-        $query->execute(
-            [
-                'id' => $userid
-            ]
-        );
-        return $query->fetch(PDO::FETCH_ASSOC);
-    }
 }

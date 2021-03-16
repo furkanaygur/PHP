@@ -27,13 +27,11 @@
                         <p>
                             <?= $row['tag_name'] ?>
                         </p>
-
                     </td>
                     <td>
                         <p>
                             <?= $row['total'] ?>
                         </p>
-
                     </td>
                     <td>
                         <a href="<?= adminURL('edit-tag?id=') . $row['tag_ID'] ?>" id="updatebtn" class="btn">Update</a>

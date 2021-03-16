@@ -2,6 +2,10 @@
 
 if (route(1) == 'category') {
     require controller('blog-category');
+} else if (route(1) == 'search') {
+    require controller('blog-search');
+} else if (route(1) == 'tag') {
+    require controller('blog-tag');
 } else {
 
     if ($post_url = route(1)) {
@@ -14,6 +18,7 @@ if (route(1) == 'category') {
 
         $totalRecord = $db->from('posts')
             ->select('count(post_ID) as total')
+            ->where('post_status', 2)
             ->total();
         $pageLimit = 1;
         $pageParam = 'page';

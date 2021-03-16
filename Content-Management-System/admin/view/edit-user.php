@@ -27,6 +27,13 @@
     .permissions .list label input {
         cursor: pointer;
     }
+
+    .submenu-container {
+        margin-left: 20px;
+        border-left: 4px solid #ddd;
+        padding-left: 10px;
+        margin-bottom: 20px;
+    }
 </style>
 
 <div class="box-">
@@ -74,12 +81,31 @@
                             <div class="list">
                                 <?php foreach ($menu['permissions'] as $key => $permission) : ?>
                                     <label for="<?= $permission . $url ?>">
-                                        <input type="checkbox" value="1" <?= (isset($permissions[$url][$key]) && $permissions[$url][$key] == 1) ? 'checked' : null ?> name="user_permissions[<?= $url ?>][<?= $key ?>]" id="<?= $permission . $url ?>">
-
+                                        <input type="checkbox" value="1" <?= (isset($permissions[$menu['url']][$key]) && $permissions[$menu['url']][$key] == 1) ? 'checked' : null ?> name="user_permissions[<?= $menu['url'] ?>][<?= $key ?>]" id="<?= $permission . $url ?>">
                                         <?= $permission ?>
                                     </label>
                                 <?php endforeach; ?>
                             </div>
+                            <!-- Submenu -->
+                            <?php if (isset($menu['submenu'])) : ?>
+                                <div class="submenu-container">
+                                    <?php foreach ($menu['submenu'] as $k => $submenu) : if (!isset($submenu['permissions'])) continue; ?>
+
+                                        <div>
+                                            <h3><?= $submenu['title'] ?></h3>
+                                        </div>
+                                        <div class="list">
+                                            <?php foreach ($submenu['permissions'] as $key => $permission) : ?>
+                                                <label for="<?= $permission . $k . $k ?>">
+                                                    <input type="checkbox" value="1" <?= (isset($permissions[$submenu['url']][$key]) && $permissions[$submenu['url']][$key] == 1) ? 'checked' : null ?> name="user_permissions[<?= $submenu['url'] ?>][<?= $key ?>]" id="<?= $permission . $k . $k ?>">
+                                                    <?= $permission ?>
+                                                </label>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+                            <!-- Submenu end -->
                         <?php endforeach; ?>
                     </div>
                 </div>

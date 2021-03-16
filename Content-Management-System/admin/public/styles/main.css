@@ -648,7 +648,8 @@ body {
 }
 .sidebar > ul .sub-menu li.active a {
   font-weight: bold;
-  color: #fff;
+  font-size: 16px;
+  color: #00b9eb;
 }
 .sidebar .collapse-menu {
   display: block;

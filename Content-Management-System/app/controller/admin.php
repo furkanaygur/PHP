@@ -11,14 +11,40 @@ if (!session('user_rank') || session('user_rank') == 3) {
     $route[1] = 'login';
 }
 $menus = [
-    'index' => [
+    [
+        'url' => 'index',
         'title' => 'Home',
         'icon' => 'home',
         'permissions' => [
             'view' => 'View'
         ]
     ],
-    'users' => [
+    [
+        'url' => 'reference',
+        'title' => 'References',
+        'icon' => 'people-arrows',
+        'permissions' => [
+            'view' => 'View',
+            'add' => 'Add',
+            'edit' => 'Edit',
+            'delete' => 'Delete'
+        ],
+        'submenu' => [
+            [
+                'url' => 'reference-categories',
+                'title' => 'Reference Categories',
+                'permissions' => [
+                    'view' => 'View',
+                    'add' => 'Add',
+                    'edit' => 'Edit',
+                    'delete' => 'Delete'
+                ],
+            ]
+        ]
+
+    ],
+    [
+        'url' => 'users',
         'title' => 'Users',
         'icon' => 'users-cog',
         'permissions' => [
@@ -26,12 +52,9 @@ $menus = [
             'edit' => 'Edit',
             'delete' => 'Delete'
         ]
-        // 'submenu' => [
-        //     'add-user' => 'Add User',
-        //     'list-users' => 'List Users'
-        // ]
     ],
-    'pages' => [
+    [
+        'url' => 'pages',
         'title' => 'Pages',
         'icon' => 'file',
         'permissions' => [
@@ -41,45 +64,55 @@ $menus = [
             'delete' => 'Delete'
         ]
     ],
-    'categories' => [
-        'title' => 'Categories',
-        'icon' => 'folder',
-        'permissions' => [
-            'view' => 'View',
-            'add' => 'Add',
-            'edit' => 'Edit',
-            'delete' => 'Delete'
-        ]
-    ],
-    'posts' => [
-        'title' => 'Posts',
+    [
+        'url' => 'posts',
+        'title' => 'Blog',
         'icon' => 'rss',
         'permissions' => [
             'view' => 'View',
             'add' => 'Add',
             'edit' => 'Edit',
             'delete' => 'Delete'
+        ],
+        'submenu' => [
+            [
+                'url' => 'posts',
+                'title' => 'Posts',
+            ],
+            [
+                'url' => 'tags',
+                'title' => 'Tags',
+                'permissions' => [
+                    'view' => 'View',
+                    'add' => 'Add',
+                    'edit' => 'Edit',
+                    'delete' => 'Delete'
+                ]
+            ],
+            [
+                'url' => 'categories',
+                'title' => 'Categories',
+                'permissions' => [
+                    'view' => 'View',
+                    'add' => 'Add',
+                    'edit' => 'Edit',
+                    'delete' => 'Delete'
+                ]
+            ],
+            [
+                'url' => 'comments',
+                'title' => 'Comments',
+                'icon' => 'comments',
+                'permissions' => [
+                    'view' => 'View',
+                    'edit' => 'Edit',
+                    'delete' => 'Delete'
+                ]
+            ],
         ]
     ],
-    'tags' => [
-        'title' => 'Tags',
-        'icon' => 'tag',
-        'permissions' => [
-            'view' => 'View',
-            'add' => 'Add',
-            'edit' => 'Edit',
-            'delete' => 'Delete'
-        ]
-    ],
-    'comments' => [
-        'title' => 'Comments',
-        'icon' => 'comments',
-        'permissions' => [
-            'edit' => 'Edit',
-            'delete' => 'Delete'
-        ]
-    ],
-    'contact' => [
+    [
+        'url' => 'contact',
         'title' => 'Contacts',
         'icon' => 'address-book',
         'permissions' => [
@@ -87,9 +120,10 @@ $menus = [
             'send' => 'Send',
             'edit' => 'Edit',
             'delete' => 'Delete'
-        ]
+        ],
     ],
-    'menu-settings' => [
+    [
+        'url' => 'menu-settings',
         'title' => 'Menu Settings',
         'icon' => 'sliders-h',
         'permissions' => [
@@ -99,7 +133,8 @@ $menus = [
             'delete' => 'Delete'
         ]
     ],
-    'settings' => [
+    [
+        'url' => 'settings',
         'title' => 'Settings',
         'icon' => 'cogs',
         'permissions' => [
