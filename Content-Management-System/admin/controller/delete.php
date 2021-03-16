@@ -8,9 +8,47 @@ if ($table == 'menu') {
         permissionPage();
     }
 }
-if (permission($table, 'delete')) {
+if (permission(($table == 'reference_images' ? 'reference' : $table), 'delete')) {
     permissionPage();
 }
+
+if ($table == 'reference_images') {
+    if (permission('reference', 'delete')) {
+        permissionPage();
+    }
+
+    $img = $db->from('reference_images')
+        ->join('reference', '%s.reference_ID = %s.image_reference_ID')
+        ->where('image_ID', $id)->first();
+
+    unlink(PATH . '/upload/reference/' . $img['reference_url'] . '/' . $img['image_url']);
+}
+if ($table == 'reference') {
+    if (permission('reference', 'delete')) {
+        permissionPage();
+    }
+
+    $img = $db->from('reference')->where('reference_ID', $id)->first();
+
+    foreach (glob(PATH . '/upload/reference/' . $img['reference_url'] . '/*') as $file) {
+        unlink($file);
+    }
+    rmdir(PATH . '/upload/reference/' . $img['reference_url']);
+
+    $db->delete('reference_images')->where('images_reference_ID', $id)->done();
+}
+if ($table == 'reference_images') {
+    if (permission('reference', 'delete')) {
+        permissionPage();
+    }
+
+    $img = $db->from('reference_images')
+        ->join('reference', '%s.reference_ID = %s.image_reference_ID')
+        ->where('image_ID', $id)->first();
+
+    unlink(PATH . '/upload/reference/' . $img['reference_url'] . '/' . $img['image_url']);
+}
+
 
 $query = $db->delete($table)->where($column, $id)->done();
 

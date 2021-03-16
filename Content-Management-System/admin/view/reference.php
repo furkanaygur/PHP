@@ -15,8 +15,10 @@
     <table>
         <thead>
             <tr>
+                <th>&nbsp;</th>
                 <th>Reference</th>
-                <th>Post Content</th>
+                <th>Content</th>
+                <th>Categories</th>
                 <th>Date</th>
                 <th>Operations</th>
             </tr>
@@ -24,6 +26,9 @@
         <tbody>
             <?php foreach ($query as $row) : ?>
                 <tr>
+                    <td>
+                        <img style="width: 250px; height:auto; border-radius:5px;" src="<?= siteURL('upload/reference/') . $row['reference_url'] . '/' . $row['reference_image'] ?>" alt="">
+                    </td>
                     <td>
                         <?= $row['reference_title'] ?>
                     </td>
@@ -33,11 +38,14 @@
                             <a href="<?= adminURL('edit-post?id=') . $row['reference_ID'] ?>">...Read More</a>
                         <?php endif; ?>
                     </td>
+                    <td>
+                        <?= $row['category_name'] ?>
+                    </td>
                     <td title="<?= $row['reference_date'] ?>">
                         <?= timeConvert($row['reference_date']) ?>
                     </td>
                     <td>
-                        <a href="<?= siteURL('blog/' . $row['reference_url']) ?>" class="btn" target="_blank">View</a>
+                        <a href="<?= adminURL('reference-images?id=') . $row['reference_ID'] ?>" id="updatebtn" class="btn">Images</a>
                         <a href="<?= adminURL('edit-reference?id=') . $row['reference_ID'] ?>" id="updatebtn" class="btn">Update</a>
                         <a onclick="return confirm('Are you sure?')" href="<?= adminURL('delete?table=reference&column=reference_ID&id=') . $row['reference_ID'] ?>" id="deletebtn" style="background-color: #ff3333;" class="btn">Delete</a>
                     </td>

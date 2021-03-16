@@ -169,7 +169,7 @@
             <ul>
                 <?php if (isset($menus)) : ?>
                     <?php foreach ($menus as $mainUrl => $menu) : ?>
-                        <li class="<?= (route(1) == $mainUrl) || (isset($menu['submenu']) && array_search(route(1), array_column($menu['submenu'], 'url')) !== false) ? 'active' : null ?>">
+                        <li class="<?= (route(1) == $menu['url']) || (isset($menu['submenu']) && array_search(route(1), array_column($menu['submenu'], 'url')) !== false) ? 'active' : null ?>">
                             <a href="<?= adminURL($menu['url']) ?>">
                                 <span class="fa fa-<?= $menu['icon'] ?>"></span>
                                 <span class="title">

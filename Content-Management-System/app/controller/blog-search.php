@@ -21,7 +21,7 @@ $pageParam = 'page';
 $pagination = $db->pagination($totalRecord, $pageLimit, $pageParam);
 
 $currentPageCount = !empty($_SERVER['QUERY_STRING']) ? explode('=', $_SERVER['QUERY_STRING']) : 1;
-$currentPageCount = is_array($currentPageCount) ? $currentPageCount[2] : $currentPageCount;
+$currentPageCount = is_array($currentPageCount) ? ($currentPageCount[1] ? $currentPageCount[1] : $currentPageCount[2]) : $currentPageCount;
 
 $query = $db->from('posts')
     ->select('posts.*, GROUP_CONCAT(category_name SEPARATOR ", ") as category_name, GROUP_CONCAT(category_url SEPARATOR ", ") as category_url')
