@@ -124,7 +124,7 @@ $menus = [
     ],
     [
         'url' => 'menu-settings',
-        'title' => 'Menu Settings',
+        'title' => 'Menu',
         'icon' => 'sliders-h',
         'permissions' => [
             'view' => 'View',
